@@ -12,6 +12,11 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	testSprite.setSize(sf::Vector2f(100, 100));
 	testSprite.setPosition(100, 100);
 	*/
+
+	window->setMouseCursorVisible(false);
+	myPlayer.setInput(input);
+	myMouse.setInput(input);
+
 }
 
 Level::~Level()
@@ -27,21 +32,27 @@ void Level::handleInput(float dt)
 	{
 		window->close();
 	}
-
+	myPlayer.handleInput(dt);
 }
 
 // Update game objects
 void Level::update(float dt)
 {
-	
+	myEnemy.update(dt);
+	myEnemy2.update(dt);
+	myMouse.update(dt);
+
 }
 
 // Render level
 void Level::render()
 {
 	beginDraw();
-
+	window->draw(myBackgroundTexture.BackgroundTexture);
 	window->draw(myPlayer.getPlayerSprite());
+	window->draw(myEnemy.enemySprite);
+	window->draw(myEnemy2.enemy2Sprite);
+	window->draw(myMouse.mouseSprite);
 
 	endDraw();
 }

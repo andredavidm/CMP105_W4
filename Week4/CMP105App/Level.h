@@ -6,7 +6,10 @@
 #include <string.h>
 #include <iostream>
 #include "Player.h"
-
+#include "Enemy.h"
+#include "Enemy2.h"
+#include "Mouse.h"
+#include "background.h"
 
 class Level{
 public:
@@ -27,6 +30,10 @@ private:
 	Input* input;
 
 	Player myPlayer;
+	Enemy myEnemy;
+	Enemy2 myEnemy2;
+	Mouse myMouse;
+	Background myBackgroundTexture;
 
 	// Level objects
 	//GameObject testSprite;
