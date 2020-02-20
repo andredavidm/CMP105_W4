@@ -1,4 +1,6 @@
 #include "Level.h"
+#include <iostream>
+using namespace std;
 
 Level::Level(sf::RenderWindow* hwnd, Input* in)
 {
@@ -16,7 +18,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	window->setMouseCursorVisible(false);
 	myPlayer.setInput(input);
 	myMouse.setInput(input);
-
+	view = window->getView();
 }
 
 Level::~Level()
@@ -33,6 +35,13 @@ void Level::handleInput(float dt)
 		window->close();
 	}
 	myPlayer.handleInput(dt);
+
+
+	if (input->isKeyDown(sf::Keyboard::Space))
+	{
+		view.move(100.0f, 0);
+		window->setView(view);
+	}
 }
 
 // Update game objects
@@ -42,6 +51,7 @@ void Level::update(float dt)
 	myEnemy2.update(dt);
 	myMouse.update(dt);
 
+	
 }
 
 // Render level

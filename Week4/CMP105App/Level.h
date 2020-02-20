@@ -35,6 +35,8 @@ private:
 	Mouse myMouse;
 	Background myBackgroundTexture;
 
+	sf::View view;
+
 	// Level objects
 	//GameObject testSprite;
 	//sf::Texture texture;
