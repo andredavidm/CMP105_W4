@@ -6,12 +6,12 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	input = in;
 
 	// initialise game objects
-	texture.loadFromFile("gfx/Mushroom.png");
+	/*texture.loadFromFile("gfx/Mushroom.png");
 
 	testSprite.setTexture(&texture);
 	testSprite.setSize(sf::Vector2f(100, 100));
 	testSprite.setPosition(100, 100);
-
+	*/
 }
 
 Level::~Level()
@@ -41,7 +41,7 @@ void Level::render()
 {
 	beginDraw();
 
-	window->draw(testSprite);
+	window->draw(myPlayer.getPlayerSprite());
 
 	endDraw();
 }
